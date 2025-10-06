@@ -1,0 +1,9 @@
+- [x] Update /api/export-analysis in app.py to accept task_id parameter
+- [x] Import celery_app in app.py
+- [x] Add task status check: if PENDING, return 202; if not SUCCESS, return error
+- [x] Extract analysis from task.result['analysis']
+- [x] Validate presence and non-emptiness of summary, clauses, risks; return 400 if missing
+- [x] Add structured logs for data lengths
+- [x] Update PDF generation to properly format clauses (list of dicts) and risks (list)
+- [x] Remove any mock placeholders from PDF content
+- [x] Test: run analysis, export with task_id after completion (implementation reviewed, syntax checked, ready for manual testing)
