@@ -153,6 +153,7 @@ logs/
 
 # Uploads (if not needed in repo)
 uploads/
+data/
 
 # ML models and large files
 *.bin
@@ -175,6 +176,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+dist/
+build/
 
 # Secrets
 secrets/
@@ -184,7 +187,42 @@ secrets/
 # Reports
 reports/
 
-# Data
-data/
+# Data files
 *.csv
 *.json
+
+# Generated exports
+export_*.pdf
+export_*.docx
+
+# Development documentation
+*_IMPLEMENTED.md
+*_FIX_SUMMARY.md
+*_SUCCESS.md
+
+# Test files
+test_*.py
+test_*.js
+test_*.txt
+
+# Temporary test data
+test.txt
+test_*.txt
+
+# Development utilities
+check_docs.py
+query
+start_backend.py
+verify_celery.py
+minimal_celery_test.py
+
+# UI redesign (if not merged)
+UI_REDESIGN/
+
+# Gitignore updates
+.gitignore_updated
+
+# Virtual environments
+venv/
+env/
+ENV/

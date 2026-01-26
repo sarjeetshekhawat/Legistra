@@ -25,3 +25,6 @@ evidently
 scikit-learn
 nltk
 sentence-transformers
+langdetect==1.0.9
+ai4bharat-indic-transliterator==1.1.2
+PyJWT==2.8.0

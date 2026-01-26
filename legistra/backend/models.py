@@ -2,6 +2,7 @@ from datetime import datetime
 from pymongo import MongoClient
 import os
 import uuid
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # MongoDB Collections Helper
 class MongoDB:
@@ -14,6 +15,9 @@ class MongoDB:
 
     def get_analysis_results_collection(self):
         return self.db.analysis_results
+
+    def get_users_collection(self):
+        return self.db.users
 
     def get_user_sessions_collection(self):
         return self.db.user_sessions
@@ -55,6 +59,45 @@ class MongoDB:
 
     def get_analysis_result(self, document_id):
         return self.get_analysis_results_collection().find_one({'document_id': document_id})
+
+    def insert_user(self, email, password):
+        user = {
+            '_id': str(uuid.uuid4()),
+            'email': email,
+            'password_hash': generate_password_hash(password),
+            'created_at': datetime.utcnow(),
+            'updated_at': datetime.utcnow()
+        }
+        result = self.get_users_collection().insert_one(user)
+        return str(result.inserted_id)
+
+    def get_user_by_email(self, email):
+        return self.get_users_collection().find_one({'email': email})
+
+    def get_user_by_id(self, user_id):
+        return self.get_users_collection().find_one({'_id': user_id})
+
+    def update_document_with_user(self, document_id, user_id):
+        """Associate document with user"""
+        self.get_documents_collection().update_one(
+            {'_id': document_id},
+            {'$set': {'user_id': user_id}}
+        )
+
+    def update_analysis_result_with_user(self, analysis_id, user_id):
+        """Associate analysis result with user"""
+        self.get_analysis_results_collection().update_one(
+            {'_id': analysis_id},
+            {'$set': {'user_id': user_id}}
+        )
+
+    def get_user_documents(self, user_id):
+        """Get all documents for a specific user"""
+        return list(self.get_documents_collection().find({'user_id': user_id}))
+
+    def get_user_analysis_results(self, user_id):
+        """Get all analysis results for a specific user"""
+        return list(self.get_analysis_results_collection().find({'user_id': user_id}))
 
     def insert_user_session(self, session_token):
         session_doc = {

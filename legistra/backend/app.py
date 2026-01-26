@@ -1,19 +1,23 @@
 import os
 import sys
 import logging
+import datetime as dt
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-from datetime import datetime
 from config import config
-from models import MongoDB, DBManager
+from models_simple import MongoDB, DBManager
 from utils.file_utils import allowed_file, extract_text
 # from transformers import pipeline  # Commented out as unused after disabling LLM
 import uuid
 import tempfile
 from tasks import analyze_document_task
+from compatibility_endpoints import analyze_document_temp, task_status_temp, export_analysis_temp, analyze_document_multilingual_temp, analyze_document_fast_multilingual_temp
 from celery_app import celery_app
+from auth import jwt_manager, token_required
+from auth_routes import auth_bp
+from functools import wraps
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -22,16 +26,35 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 env = os.getenv('FLASK_ENV', 'development')
 app.config.from_object(config[env])
-CORS(app)
+# Configure CORS with specific origins
+CORS(app, 
+     origins=['http://localhost:3000', 'http://127.0.0.1:3000'],
+     methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+     allow_headers=['Content-Type', 'Authorization'],
+     supports_credentials=True)
+
+# Configure JWT
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key-change-in-production')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = dt.timedelta(hours=24)
+
+# Initialize JWT manager
+jwt_manager.init_app(app)
+
+# Register auth blueprint
+app.register_blueprint(auth_bp)
 
 # Initialize MongoDB and DB Manager
 mongo_db = MongoDB(uri=app.config['MONGODB_URI'], db_name=app.config['MONGO_DB'])
 db_manager = DBManager(mongo_db)
 
+# Initialize simple database
+from models_simple import simple_db
+
 # Ensure upload folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 @app.route('/api/upload-document', methods=['POST'])
+@token_required
 def upload_document():
     logger.info("Upload document request received")
     if 'file' not in request.files:
@@ -56,13 +79,16 @@ def upload_document():
         text = extract_text(save_path)
         logger.info(f"Text extracted, length: {len(text)}")
         doc_id = db_manager.store_document_metadata_and_content(filename, text, save_path)
-        logger.info(f"Document stored in DB with ID: {doc_id}")
+        # Associate document with current user
+        mongo_db.update_document_with_user(doc_id, request.current_user['user_id'])
+        logger.info(f"Document stored in DB with ID: {doc_id} for user {request.current_user['user_id']}")
         return jsonify(document_id=doc_id), 200
     except Exception as e:
         logger.error(f"Error during upload: {str(e)}", exc_info=True)
         return jsonify(error=str(e)), 500
 
 @app.route('/api/analyze-document', methods=['POST'])
+@token_required
 def analyze_document():
     try:
         data = request.get_json()
@@ -71,6 +97,11 @@ def analyze_document():
         document = db_manager.get_document(doc_id)
         if not document:
             return jsonify(error='Document not found'), 404
+        
+        # Check if document belongs to current user
+        if document.get('user_id') != request.current_user['user_id']:
+            return jsonify(error='Access denied'), 403
+        
         # Start Celery task
         task = analyze_document_task.delay(doc_id)
         return jsonify(task_id=task.id, status='processing'), 202
@@ -78,6 +109,7 @@ def analyze_document():
         return jsonify(error=str(e)), 500
 
 @app.route('/api/task-status/<task_id>', methods=['GET'])
+@token_required
 def task_status(task_id):
     from celery_app import celery_app
     task = celery_app.AsyncResult(task_id)
@@ -92,6 +124,7 @@ def task_status(task_id):
     return jsonify(response)
 
 @app.route('/api/search-documents', methods=['POST'])
+@token_required
 def search_documents():
     try:
         data = request.json
@@ -101,37 +134,51 @@ def search_documents():
         if not query:
             return jsonify({'error': 'Missing search query'}), 400
 
-        # Perform simple regex search on content
-        collection = mongo_db.get_documents_collection()
+        # Perform simple regex search on user's documents only
         import re
         regex = re.compile(query, re.IGNORECASE)
-        results_cursor = collection.find({'content': {'$regex': regex}}).limit(10)
-        results = list(results_cursor)
-        for doc in results:
-            doc.pop('content', None)  # Remove content for results
-            doc['upload_time'] = doc['upload_time'].isoformat()
+        
+        # Get user documents first
+        user_docs = mongo_db.get_user_documents(request.current_user['user_id'])
+        
+        # Filter by search query
+        results = []
+        for doc in user_docs:
+            if regex.search(doc.get('content', '')):
+                # Remove content for results
+                doc_copy = doc.copy()
+                doc_copy.pop('content', None)
+                # Keep upload_time as string (already in ISO format)
+                results.append(doc_copy)
+        
+        # Limit to 10 results
+        results = results[:10]
 
         return jsonify({'results': results}), 200
     except Exception as e:
         return jsonify(error=str(e)), 500
 
 @app.route('/api/documents', methods=['GET'])
+@token_required
 def list_documents():
     page = int(request.args.get('page', 1))
     per_page = int(request.args.get('per_page', 10))
     sort_by = request.args.get('sort_by', 'upload_time')
     order = request.args.get('order', 'desc')
 
-    collection = mongo_db.get_documents_collection()
-    sort_order = -1 if order == 'desc' else 1
-    documents_cursor = collection.find().sort(sort_by, sort_order).skip((page-1)*per_page).limit(per_page)
-    documents = list(documents_cursor)
-    total = collection.count_documents({})
+    # Get user documents
+    user_docs = mongo_db.get_user_documents(request.current_user['user_id'])
+    
+    # Simple pagination (skip first N-1 pages)
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    documents = user_docs[start_idx:end_idx]
+    total = len(user_docs)
 
-    # Convert to dict, remove content for list
+    # Remove content for list
     for doc in documents:
         doc.pop('content', None)
-        doc['upload_time'] = doc['upload_time'].isoformat()
+        # upload_time is already in string format
 
     return jsonify({
         'documents': documents,
@@ -141,26 +188,30 @@ def list_documents():
     })
 
 @app.route('/api/dashboard-stats', methods=['GET'])
+@token_required
 def dashboard_stats():
-    collection = mongo_db.get_documents_collection()
-    total_documents = collection.count_documents({})
-    recent_uploads_cursor = collection.find().sort('upload_time', -1).limit(5)
-    recent_uploads = list(recent_uploads_cursor)
+    # Get user documents
+    user_docs = mongo_db.get_user_documents(request.current_user['user_id'])
+    total_documents = len(user_docs)
+    
+    # Get recent uploads (last 5)
+    recent_uploads = user_docs[:5]
     for doc in recent_uploads:
         doc.pop('content', None)
-        doc['upload_time'] = doc['upload_time'].isoformat()
+        # upload_time is already in string format
 
-    analysis_collection = mongo_db.get_analysis_results_collection()
-    pipeline = [
-        {
-            '$group': {
-                '_id': '$analysis_results',
-                'count': {'$sum': 1}
-            }
-        }
-    ]
-    analysis_counts_cursor = analysis_collection.aggregate(pipeline)
-    analysis_counts = [{'analysis_types': ac['_id'], 'count': ac['count']} for ac in analysis_counts_cursor]
+    # Get user analysis results
+    user_analysis = mongo_db.get_user_analysis_results(request.current_user['user_id'])
+    
+    # Simple analysis counts
+    analysis_counts = []
+    analysis_types = {}
+    for analysis in user_analysis:
+        key = analysis.get('analysis_results', 'unknown')
+        analysis_types[key] = analysis_types.get(key, 0) + 1
+    
+    for key, count in analysis_types.items():
+        analysis_counts.append({'analysis_types': key, 'count': count})
 
     return jsonify({
         'total_documents': total_documents,
@@ -169,6 +220,7 @@ def dashboard_stats():
     })
 
 @app.route('/api/export-analysis', methods=['POST'])
+@token_required
 def export_analysis():
     data = request.json
     task_id = data.get('task_id')
@@ -222,9 +274,13 @@ def export_analysis():
     # Generate PDF report
     from reportlab.lib.pagesizes import letter
     from reportlab.pdfgen import canvas
+    from compatibility_endpoints import add_legistra_logo_to_pdf
     temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.pdf')
     c = canvas.Canvas(temp_file.name, pagesize=letter)
     width, height = letter
+    
+    # Draw logo in top-right corner
+    add_legistra_logo_to_pdf(c, width - 80, height - 80, 50)
 
     c.drawString(100, height - 100, f"Analysis Report for Document ID: {document_id}")
     c.drawString(100, height - 120, f"Summary: {analysis.get('summary', 'No summary available')}")
@@ -249,6 +305,33 @@ def export_analysis():
     temp_file.close()
 
     return send_file(temp_file.name, as_attachment=True, download_name=f'analysis_report_{document_id}.pdf')
+
+# Temporary endpoints to bypass Celery issues
+@app.route('/api/analyze-document-temp', methods=['POST'])
+def analyze_document_temp_route():
+    """Temporary synchronous analysis endpoint to bypass Celery issues"""
+    return analyze_document_temp()
+
+@app.route('/api/task-status-temp/<task_id>', methods=['GET'])
+def task_status_temp_route(task_id):
+    """Temporary task status endpoint"""
+    return task_status_temp(task_id)
+
+@app.route('/api/export-analysis-temp/<document_id>', methods=['POST'])
+def export_analysis_temp_route(document_id):
+    """Temporary export analysis endpoint for synchronous ML analysis"""
+    return export_analysis_temp(document_id)
+
+@app.route('/api/analyze-document-multilingual', methods=['POST'])
+def analyze_document_multilingual_route():
+    """Multilingual document analysis endpoint supporting Hindi, Marathi, and English"""
+    return analyze_document_multilingual_temp()
+
+@app.route('/api/analyze-document-fast-multilingual', methods=['POST'])
+@token_required
+def analyze_document_fast_multilingual_route():
+    """Fast multilingual document analysis endpoint with optimized performance"""
+    return analyze_document_fast_multilingual_temp(mongo_db, simple_db)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
