@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { searchDocuments } from '../services/api';
+import { searchDocuments, analyzeDocumentFastMultilingual } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -11,6 +12,9 @@ const Search = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [analyzingDocId, setAnalyzingDocId] = useState(null);
+  const [selectedDocument, setSelectedDocument] = useState(null);
+  const navigate = useNavigate();
 
   const handleSearch = async () => {
     if (!query.trim()) {
@@ -21,12 +25,31 @@ const Search = () => {
     setError('');
     try {
       const response = await searchDocuments(query, filters);
-      setResults(response.data.results);
+      setResults(response.data.documents || []);
     } catch (err) {
       setError('Failed to search documents. Please try again.');
       console.error('Search error:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleViewDocument = (document) => {
+    // Show document details in a modal
+    setSelectedDocument(document);
+  };
+
+  const handleAnalyzeDocument = async (documentId) => {
+    setAnalyzingDocId(documentId);
+    try {
+      await analyzeDocumentFastMultilingual(documentId);
+      // Navigate to analysis page after successful analysis
+      navigate('/analysis');
+    } catch (err) {
+      setError('Failed to start analysis. Please try again.');
+      console.error('Analysis error:', err);
+    } finally {
+      setAnalyzingDocId(null);
     }
   };
 
@@ -178,49 +201,53 @@ const Search = () => {
             
             <div className="space-y-4">
               {results.map((result) => (
-                <div key={result.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div key={result._id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                   <div className="flex justify-between items-start mb-3">
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900 mb-1">{result.filename}</h3>
                       <p className="text-sm text-gray-500">
-                        Analyzed on {new Date(result.analyzedDate).toLocaleDateString()}
+                        Uploaded on {new Date(result.upload_time).toLocaleDateString()}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Type: {result.file_type?.toUpperCase()} | Size: {(result.file_size / 1024).toFixed(1)} KB
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        result.riskLevel === 'Low' ? 'bg-green-100 text-green-800' :
-                        result.riskLevel === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
-                        {result.riskLevel} Risk
-                      </span>
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        {(result.similarity * 100).toFixed(0)}% match
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        {result.file_type?.toUpperCase()}
                       </span>
                     </div>
                   </div>
                   
-                  <p className="text-gray-700 mb-4 leading-relaxed">{result.snippet}</p>
-                  
                   <div className="flex space-x-3">
-                    <button className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center">
+                    <button 
+                      onClick={() => handleViewDocument(result)}
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center"
+                    >
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
                       View
                     </button>
-                    <button className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Analyze
-                    </button>
-                    <button className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      Download
+                    <button 
+                      onClick={() => handleAnalyzeDocument(result._id)}
+                      disabled={analyzingDocId === result._id}
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {analyzingDocId === result._id ? (
+                        <>
+                          <div className="w-4 h-4 mr-1 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></div>
+                          Analyzing...
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Analyze
+                        </>
+                      )}
                     </button>
                   </div>
                 </div>
@@ -243,6 +270,59 @@ const Search = () => {
             <p className="text-gray-500">
               Try adjusting your search terms or filters to find what you're looking for.
             </p>
+          </div>
+        </div>
+      )}
+      {/* Document Detail Modal */}
+      {selectedDocument && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-xl font-semibold text-gray-900">{selectedDocument.filename}</h2>
+                <button 
+                  onClick={() => setSelectedDocument(null)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm font-medium text-gray-500">File Type</p>
+                    <p className="text-gray-900">{selectedDocument.file_type?.toUpperCase()}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-500">File Size</p>
+                    <p className="text-gray-900">{(selectedDocument.file_size / 1024).toFixed(1)} KB</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-500">Upload Date</p>
+                    <p className="text-gray-900">{new Date(selectedDocument.upload_time).toLocaleDateString()}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-500">Document ID</p>
+                    <p className="text-gray-900 text-xs">{selectedDocument._id}</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="text-sm font-medium text-gray-500 mb-2">Preview</p>
+                  <div className="bg-gray-50 rounded-lg p-4 max-h-60 overflow-y-auto">
+                    <p className="text-sm text-gray-700">
+                      {selectedDocument.content ? 
+                        `${selectedDocument.content.substring(0, 500)}${selectedDocument.content.length > 500 ? '...' : ''}` :
+                        'No content preview available'
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

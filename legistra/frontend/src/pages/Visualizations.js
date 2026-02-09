@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Bar, Pie, Line } from 'react-chartjs-2';
 import { getDashboardStats } from '../services/api';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -76,7 +78,7 @@ const Visualizations = () => {
     labels: ['Confidentiality', 'Termination', 'Liability', 'Payment', 'Intellectual Property', 'Other'],
     datasets: [{
       label: 'Clause Distribution',
-      data: [15, 12, 8, 10, 6, 4], // TODO: Use real data from stats
+      data: stats?.clause_distribution ? Object.values(stats.clause_distribution) : [15, 12, 8, 10, 6, 4],
       backgroundColor: [
         'rgba(59, 130, 246, 0.8)',
         'rgba(16, 185, 129, 0.8)',
@@ -91,7 +93,7 @@ const Visualizations = () => {
   const riskData = {
     labels: ['Low Risk', 'Medium Risk', 'High Risk'],
     datasets: [{
-      data: [45, 35, 20], // TODO: Use real data from stats.analysis_counts
+      data: stats?.risk_distribution || [45, 35, 20],
       backgroundColor: [
         'rgba(16, 185, 129, 0.8)',
         'rgba(245, 158, 11, 0.8)',
@@ -115,9 +117,52 @@ const Visualizations = () => {
     labels: ['0.0-0.2', '0.2-0.4', '0.4-0.6', '0.6-0.8', '0.8-1.0'],
     datasets: [{
       label: 'Confidence Scores',
-      data: [2, 5, 8, 15, 20], // TODO: Use real data
+      data: stats?.confidence_distribution || [2, 5, 8, 15, 20],
       backgroundColor: 'rgba(139, 92, 246, 0.8)',
     }],
+  };
+
+  const exportAsPNG = async () => {
+    try {
+      const element = document.getElementById('visualization-container');
+      const canvas = await html2canvas(element);
+      const link = document.createElement('a');
+      link.download = 'legistra-visualizations.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    } catch (error) {
+      console.error('Error exporting as PNG:', error);
+      alert('Failed to export as PNG');
+    }
+  };
+
+  const exportAsPDF = async () => {
+    try {
+      const element = document.getElementById('visualization-container');
+      const canvas = await html2canvas(element);
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      const imgWidth = 210;
+      const pageHeight = 295;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      pdf.save('legistra-visualizations.pdf');
+    } catch (error) {
+      console.error('Error exporting as PDF:', error);
+      alert('Failed to export as PDF');
+    }
   };
 
   const chartOptions = {
@@ -134,7 +179,7 @@ const Visualizations = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div id="visualization-container" className="max-w-6xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold text-gray-900">Visualizations</h1>
@@ -318,13 +363,19 @@ const Visualizations = () => {
           </div>
           
           <div className="flex space-x-4">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center">
+            <button 
+              onClick={exportAsPNG}
+              className="bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center"
+            >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586 1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               Export as PNG
             </button>
-            <button className="bg-green-600 text-white px-4 py-2 rounded-md font-medium transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center">
+            <button 
+              onClick={exportAsPDF}
+              className="bg-green-600 text-white px-4 py-2 rounded-md font-medium transition-colors hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center"
+            >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
