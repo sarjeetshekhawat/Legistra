@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Enhanced Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 
+           hover:from-primary-700 hover:to-primary-600
+           text-white font-medium py-2 px-4 rounded-lg 
+           shadow-md hover:shadow-lg
+           transform hover:-translate-y-0.5
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 
+           text-gray-800 font-medium py-2 px-4 rounded-lg 
+           shadow-sm hover:shadow-md
+           transform hover:-translate-y-0.5
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-600 to-accent-500 
+           hover:from-accent-700 hover:to-accent-600
+           text-white font-medium py-2 px-4 rounded-lg 
+           shadow-md hover:shadow-lg
+           transform hover:-translate-y-0.5
+           transition-all duration-200;
+  }
+
+  /* Enhanced Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-soft hover:shadow-elevated 
+           p-6 border border-gray-100
+           transition-all duration-300;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-gray-50
+           rounded-xl shadow-soft hover:shadow-elevated 
+           p-6 border border-gray-100
+           transition-all duration-300;
+  }
+
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg
+           bg-white
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-200;
+  }
+  
+  .input-field:focus {
+    @apply shadow-md;
+  }
+
+  /* Gradient Utilities */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-primary-600 to-primary-500;
+  }
+  
+  .bg-gradient-accent {
+    @apply bg-gradient-to-br from-accent-600 to-accent-500;
+  }
+  
+  .bg-gradient-card {
+    background: linear-gradient(to bottom, #ffffff, #f9fafb);
+  }
+  
+  .bg-gradient-page {
+    background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #f0f9ff 100%);
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  
+  .badge-success {
+    @apply bg-success-100 text-success-800 border border-success-200;
+  }
+  
+  .badge-warning {
+    @apply bg-warning-100 text-warning-800 border border-warning-200;
+  }
+  
+  .badge-danger {
+    @apply bg-danger-100 text-danger-800 border border-danger-200;
+  }
+  
+  .badge-info {
+    @apply bg-primary-100 text-primary-800 border border-primary-200;
+  }
+
+  /* Animation Classes */
+  .animate-success {
+    animation: successPulse 0.5s ease-in-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.3s ease-out;
+  }
+  
+  @keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  /* Page Transitions */
+  .page-transition-wrapper {
+    position: relative;
+  }
+
+  .page-enter {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms ease-in, transform 300ms ease-in;
+  }
+
+
+
+
+  /* Dark mode styles */
+  .dark .card,
+  .dark .card-gradient {
+    @apply bg-dark-card border-dark-border;
+  }
+
+  .dark .input-field {
+    @apply bg-dark-card border-dark-border text-dark-text 
+           focus:ring-primary-400 focus:border-transparent;
+  }
+
+  .dark .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-400
+           hover:from-primary-600 hover:to-primary-500;
+  }
+
+  .dark .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-gray-200;
+  }
+
+  .dark .text-gray-900 {
+    @apply text-gray-100;
+  }
+
+  .dark .text-gray-700 {
+    @apply text-gray-300;
+  }
+
+  .dark .text-gray-600 {
+    @apply text-gray-400;
+  }
+
+  .dark .text-gray-500 {
+    @apply text-gray-400;
+  }
+
+  .dark .bg-white {
+    @apply bg-dark-card;
+  }
+
+  .dark .bg-gray-50 {
+    @apply bg-dark-background;
+  }
+
+  .dark .bg-gray-100 {
+    @apply bg-gray-800;
+  }
+
+  .dark .bg-gray-200 {
+    @apply bg-gray-700;
+  }
+
+  .dark .border-gray-200 {
+    @apply border-dark-border;
+  }
+
+  .dark .border-gray-300 {
+    @apply border-dark-border;
+  }
+
+  .dark .border-gray-100 {
+    @apply border-dark-border;
+  }
+
+  .dark .hover\:bg-gray-50:hover {
+    @apply bg-gray-800;
+  }
+
+  .dark .hover\:bg-gray-100:hover {
+    @apply bg-gray-700;
+  }
+
+  .dark .hover\:bg-gray-200:hover {
+    @apply bg-gray-600;
+  }
+
+  .dark .focus\:ring-blue-500 {
+    @apply focus:ring-primary-400;
+  }
+
+  .dark .focus\:ring-blue-500:focus\:ring-offset-2 {
+    @apply focus:ring-offset-2 focus:ring-primary-400;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .dark .glass {
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+

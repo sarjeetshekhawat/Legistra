@@ -1,0 +1,1526 @@
+{
+  "1dd611d0-c5ad-4f11-9629-877230be4164": {
+    "_id": "1dd611d0-c5ad-4f11-9629-877230be4164",
+    "document_id": "372edee2-c6d3-4c01-87cd-2f5b692ad8d3",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.2746555805206299,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.2746555805206299,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:55:12.377049",
+    "status": "completed"
+  },
+  "27b72db7-6d6a-4797-90a6-a57e3b9aea68": {
+    "_id": "27b72db7-6d6a-4797-90a6-a57e3b9aea68",
+    "document_id": "372edee2-c6d3-4c01-87cd-2f5b692ad8d3",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.24310541152954102,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.24310541152954102,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:56:00.833550",
+    "status": "completed"
+  },
+  "2fb06870-0c72-4817-a4c3-980b1dd6c108": {
+    "_id": "2fb06870-0c72-4817-a4c3-980b1dd6c108",
+    "document_id": "372edee2-c6d3-4c01-87cd-2f5b692ad8d3",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.007225513458251953,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.007225513458251953,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:57:12.148254",
+    "status": "completed"
+  },
+  "f3b1bd0f-4b07-4130-81db-1fd3946ccd0f": {
+    "_id": "f3b1bd0f-4b07-4130-81db-1fd3946ccd0f",
+    "document_id": "372edee2-c6d3-4c01-87cd-2f5b692ad8d3",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.24381542205810547,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.24381542205810547,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:57:37.791511",
+    "status": "completed"
+  },
+  "f281f12d-14f1-4425-9afa-99899bfa16e1": {
+    "_id": "f281f12d-14f1-4425-9afa-99899bfa16e1",
+    "document_id": "372edee2-c6d3-4c01-87cd-2f5b692ad8d3",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.027123212814331055,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.027123212814331055,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:57:52.394387",
+    "status": "completed"
+  },
+  "b62f45b3-bdf7-430d-9ad6-d27247ed4379": {
+    "_id": "b62f45b3-bdf7-430d-9ad6-d27247ed4379",
+    "document_id": "cad4b24d-34b3-4554-8dd0-9e06ebfbe045",
+    "analysis_results": {
+      "summary": "between: Sunrise Properties LLC, a California limited liability company (\u201cLandlord\u201d), and GreenLeaf Caf\u00e9, Inc. , a California corporation (\u201cTenant\u201d). 1 Landlord leases to Tenant the premises located at 101 Main Street, Suite 200, Palo Alto, CA, approximately 2,500 square feet (the \u201cPremises\u201d).",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "Tenant shall deposit $20,000 upon execution, refundable at lease end, less any deductions for damage or unpaid charges. 6. Insurance and Indemnity 6.1 Tenant shall maintain commercial general liability insurance with minimum limits of $1,000,000 per",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "posit $20,000 upon execution, refundable at lease end, less any deductions for damage or unpaid charges. 6. Insurance and Indemnity 6.1 Tenant shall maintain commercial general liability insurance with minimum limits of $1,000,000 per occurrence. 6.2",
+          "language": "english"
+        },
+        {
+          "type": "payment",
+          "heading": "Payment Clause",
+          "content": ". Default and Remedies 7.1 Events of Default: Non-payment of rent, breach of covenants, abandonment. 7.2 Remedies: Landlord may terminate lease or pursue any remedy available at law or equity after ten (10) days\u2019 written notice. 8. Governing Law 8.1",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "een: Sunrise Properties LLC, a California limited liability company (\u201cLandlord\u201d), and GreenLeaf Caf\u00e9, Inc., a California corporation (\u201cTenant\u201d). 1. Demised Premises 1.1 Landlord leases to Tenant the premises located at 101 Main Street, Suite 200, Pal",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 25.0,
+        "termination": 25.0,
+        "payment": 25.0,
+        "liability": 25.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Payment terms identified - verify schedule (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.023508310317993164,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.023508310317993164,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T15:59:37.527573",
+    "status": "completed"
+  },
+  "f8092cd7-2fb7-4c9f-9e42-17302608fd5a": {
+    "_id": "f8092cd7-2fb7-4c9f-9e42-17302608fd5a",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.03661489486694336,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.03661489486694336,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T16:15:44.884307",
+    "status": "completed"
+  },
+  "b0a461a6-6be5-4a67-8a1b-b9cca7b48514": {
+    "_id": "b0a461a6-6be5-4a67-8a1b-b9cca7b48514",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.02970123291015625,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.02970123291015625,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T16:16:06.757659",
+    "status": "completed"
+  },
+  "d595332e-6dbd-459e-ade2-8b1c7537aa6b": {
+    "_id": "d595332e-6dbd-459e-ade2-8b1c7537aa6b",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.9865937232971191,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.9865937232971191,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T16:23:20.548854",
+    "status": "completed"
+  },
+  "1f8f2234-ba92-473b-9c46-936226baaf2f": {
+    "_id": "1f8f2234-ba92-473b-9c46-936226baaf2f",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 1.2000269889831543,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 1.2000269889831543,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T17:10:56.230125",
+    "status": "completed"
+  },
+  "f1aa0187-bdf5-41f5-a2da-880e8691a564": {
+    "_id": "f1aa0187-bdf5-41f5-a2da-880e8691a564",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 1.4570269584655762,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 1.4570269584655762,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T17:35:52.117270",
+    "status": "completed"
+  },
+  "98561465-0301-47de-8099-57dd1cdeb68a": {
+    "_id": "98561465-0301-47de-8099-57dd1cdeb68a",
+    "document_id": "35555fc3-e356-4ae4-a52f-16d5c9c59fd7",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.12607550621032715,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.12607550621032715,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T17:36:06.210949",
+    "status": "completed"
+  },
+  "cc58dbf2-a569-4704-b3f1-a000cc3a3152": {
+    "_id": "cc58dbf2-a569-4704-b3f1-a000cc3a3152",
+    "document_id": "35555fc3-e356-4ae4-a52f-16d5c9c59fd7",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.25510430335998535,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.25510430335998535,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T17:37:04.821401",
+    "status": "completed"
+  },
+  "6d33e3bd-e3cc-46b4-9466-c9e86ad76927": {
+    "_id": "6d33e3bd-e3cc-46b4-9466-c9e86ad76927",
+    "document_id": "61589d50-5bc5-43e1-9201-eb2ecbb02f16",
+    "analysis_results": {
+      "summary": "between: Industrial Solutions Co. , an Ohio corporation (\u201cSeller\u201d), and Metro Builders Group, an Ohio limited liability company (\u201cBuyer\u201d). Section 1 \u2013 Goods Sold 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "payment",
+          "heading": "Payment Clause",
+          "content": "es, and delivery schedules. Section 2 \u2013 Price and Payment 2.1 Total Purchase Price: $120,000. 2.2 Payment Terms: 40% deposit upon order, balance due net 30 days after delivery. Section 3 \u2013 Delivery and Risk of Loss 3.1 Delivery Terms: FOB Seller\u2019s wa",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ller\u201d), and Metro Builders Group, an Ohio limited liability company (\u201cBuyer\u201d). Section 1 \u2013 Goods Sold 1.1 Seller agrees to sell, and Buyer agrees to purchase, the goods listed in Exhibit A attached hereto, including specifications, quantities, and de",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "payment": 50.0,
+        "liability": 50.0
+      },
+      "risks": [
+        "Payment terms identified - verify schedule (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.014174461364746094,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.014174461364746094,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T17:46:49.780036",
+    "status": "completed"
+  },
+  "79f9f63f-de74-4931-8117-fdc5f888def4": {
+    "_id": "79f9f63f-de74-4931-8117-fdc5f888def4",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.009938955307006836,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.009938955307006836,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T18:24:37.426548",
+    "status": "completed"
+  },
+  "31b7bef6-de35-4e76-8b00-20fb9809e04d": {
+    "_id": "31b7bef6-de35-4e76-8b00-20fb9809e04d",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 1.999018669128418,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 1.999018669128418,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T18:24:39.434594",
+    "status": "completed"
+  },
+  "5d7fd28f-b9be-429e-84a8-efd19ce3db2a": {
+    "_id": "5d7fd28f-b9be-429e-84a8-efd19ce3db2a",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.031495094299316406,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.031495094299316406,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-01-26T18:24:46.358711",
+    "status": "completed"
+  },
+  "0723f50d-38c0-4c99-a305-430eba2ee924": {
+    "_id": "0723f50d-38c0-4c99-a305-430eba2ee924",
+    "document_id": "35555fc3-e356-4ae4-a52f-16d5c9c59fd7",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 2.4136745929718018,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 2.4136745929718018,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-02T08:28:45.676561",
+    "status": "completed"
+  },
+  "468759c1-4809-4431-ba21-207c2668c7eb": {
+    "_id": "468759c1-4809-4431-ba21-207c2668c7eb",
+    "document_id": "35555fc3-e356-4ae4-a52f-16d5c9c59fd7",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 2.163827657699585,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 2.163827657699585,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:22:24.065017",
+    "status": "completed"
+  },
+  "6e391ee1-4b2a-4b6e-abb8-7eff401b96d1": {
+    "_id": "6e391ee1-4b2a-4b6e-abb8-7eff401b96d1",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.9196052551269531,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.9196052551269531,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:31:57.272335",
+    "status": "completed"
+  },
+  "838f2242-3e0a-401a-8152-6fc950e7758c": {
+    "_id": "838f2242-3e0a-401a-8152-6fc950e7758c",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.9524526596069336,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.9524526596069336,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:37:24.623234",
+    "status": "completed"
+  },
+  "ace9169c-b8ad-46bb-8bfa-63a8ab36cf39": {
+    "_id": "ace9169c-b8ad-46bb-8bfa-63a8ab36cf39",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.040962934494018555,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.040962934494018555,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:39:56.612922",
+    "status": "completed"
+  },
+  "bf4a6d5f-6e67-41aa-9436-c258cb1c9b7c": {
+    "_id": "bf4a6d5f-6e67-41aa-9436-c258cb1c9b7c",
+    "document_id": "139ea2c1-070f-47fb-9094-beec20e63f3b",
+    "analysis_results": {
+      "summary": "between: ABC TECHNOLOGIES, INC. , a Delaware corporation with its principal place of business at 123 Innovation Drive, Wilmington, DE 19801 (\u201cDisclosing Party\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, THEREFORE, in consideration of the mutual promises and covenants herein, the parties agree as follows: 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "ITALS WHEREAS, Disclosing Party possesses certain confidential and proprietary information; and WHEREAS, Receiving Party desires to receive such information for the sole purpose of evaluating a potential business relationship (the \u201cPurpose\u201d); NOW, TH",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "n no event less than reasonable care. 3. Term and Termination 3.1 This Agreement shall commence on the Effective Date and continue for a period of three (3) years, unless earlier terminated by either party upon thirty (30) days\u2019 prior written notice.",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "ty\u201d), and XYZ SOLUTIONS LLC, a California limited liability company with its principal place of business at 456 Enterprise Avenue, San Francisco, CA 94105 (\u201cReceiving Party\u201d). RECITALS WHEREAS, Disclosing Party possesses certain confidential and prop",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.028557538986206055,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.028557538986206055,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:40:00.472789",
+    "status": "completed"
+  },
+  "e2e2dc53-5d8e-4987-a251-51cbb3407f12": {
+    "_id": "e2e2dc53-5d8e-4987-a251-51cbb3407f12",
+    "document_id": "bbb50d3d-e7ae-4625-a29e-570b856352b7",
+    "analysis_results": {
+      "summary": "MASTER SERVICES AGREEMENT (High-Risk Commercial Template for Testing Purposes Only) This Master Services Agreement (\u201cAgreement\u201d) is entered into as of [Effective Date], by and between: [Company Name], a [State/Country] corporation with its principal place of business at [Address] (\u201cCompany\u201d), and [Client Name], a [State/Country] entity with its principal place of business at [Address] (\u201cClient\u201d). Company and Client may be referred to individually as a \u201cParty\u201d and collectively as the \u201cParties. 1 Company shall provide the services described in one or more Statements of Work (\u201cSOW\u201d).",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "rights to the fullest extent permitted by law. 4. CONFIDENTIALITY 4.1 \u201cConfidential Information\u201d includes all technical, financial, strategic, and operational information disclosed by either Party. 4.2 The receiving Party shall: Protect Confidential",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "or written consent. 4.3 These obligations survive termination for ten (10) years, or perpetually for trade secrets. 5. DATA PROTECTION AND SECURITY 5.1 Client acknowledges that Services may involve processing of personal data. 5.2 Company makes no wa",
+          "language": "english"
+        },
+        {
+          "type": "payment",
+          "heading": "Payment Clause",
+          "content": "nted unless explicitly stated in a signed SOW. 2. PAYMENT TERMS 2.1 Client shall pay all fees within seven (7) days of invoice date. 2.2 Late payments shall accrue interest at the greater of 2.5% per month or the maximum permitted by law, compounded",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "tory compliance of deliverables. 7. LIMITATION OF LIABILITY 7.1 To the maximum extent permitted by law, Company\u2019s total aggregate liability shall not exceed the total fees paid by Client in the thirty (30) days preceding the claim. 7.2 Under no circu",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 25.0,
+        "termination": 25.0,
+        "payment": 25.0,
+        "liability": 25.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Payment terms identified - verify schedule (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 1.031083106994629,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 1.031083106994629,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T12:44:12.079432",
+    "status": "completed"
+  },
+  "919a47f9-f8b0-4ac4-bc2f-4ef7d49bfe5a": {
+    "_id": "919a47f9-f8b0-4ac4-bc2f-4ef7d49bfe5a",
+    "document_id": "1e44928f-8760-454f-a015-8118a2257368",
+    "analysis_results": {
+      "summary": "\u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f \u090f\u0935\u0902 \u0938\u0947\u0935\u093e \u0905\u0928\u0941\u092c\u0902\u0927 (Employment Agreement) \u092f\u0939 \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f \u090f\u0935\u0902 \u0938\u0947\u0935\u093e \u0905\u0928\u0941\u092c\u0902\u0927 (\u201c\u0905\u0928\u0941\u092c\u0902\u0927\u201d) \u0926\u093f\u0928\u093e\u0902\u0915 01 \u091c\u0928\u0935\u0930\u0940 2026 \u0915\u094b, \u0915\u0902\u092a\u0928\u0940: \u090f\u092c\u0940\u0938\u0940 \u091f\u0947\u0915\u094d\u0928\u094b\u0932\u0949\u091c\u0940\u091c\u093c \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921, \u091c\u093f\u0938\u0915\u093e \u092a\u0902\u091c\u0940\u0915\u0943\u0924 \u0915\u093e\u0930\u094d\u092f\u093e\u0932\u092f: \u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940 \u2013 110001 (\u091c\u093f\u0938\u0947 \u0906\u0917\u0947 \u201c\u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e\u201d \u0915\u0939\u093e \u091c\u093e\u090f\u0917\u093e) \u0914\u0930 \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940: \u0936\u094d\u0930\u0940 \u0930\u093e\u0939\u0941\u0932 \u0915\u0941\u092e\u093e\u0930, \u0928\u093f\u0935\u093e\u0938\u0940: \u091c\u092f\u092a\u0941\u0930, \u0930\u093e\u091c\u0938\u094d\u0925\u093e\u0928 (\u091c\u093f\u0938\u0947 \u0906\u0917\u0947 \u201c\u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940\u201d \u0915\u0939\u093e \u091c\u093e\u090f\u0917\u093e) \u0915\u0947 \u092c\u0940\u091a \u0938\u0902\u092a\u093e\u0926\u093f\u0924 \u0915\u093f\u092f\u093e \u0917\u092f\u093e. \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f (Appointment) \u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0915\u094b \u0938\u0949\u092b\u094d\u091f\u0935\u0947\u092f\u0930 \u0907\u0902\u091c\u0940\u0928\u093f\u092f\u0930 \u0915\u0947 \u092a\u0926 \u092a\u0930 \u0928\u093f\u092f\u0941\u0915\u094d\u0924 \u0915\u0930\u0924\u093e \u0939\u0948. \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0907\u0938 \u092a\u0926 \u0938\u0947 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u092d\u0940 \u0915\u0930\u094d\u0924\u0935\u094d\u092f\u094b\u0902 \u0915\u093e \u0908\u092e\u093e\u0928\u0926\u093e\u0930\u0940 \u090f\u0935\u0902 \u0928\u093f\u0937\u094d\u0920\u093e \u0938\u0947 \u092a\u093e\u0932\u0928 \u0915\u0930\u0947\u0917\u093e.",
+      "language": "hindi",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": ", \u092c\u0940\u092e\u093e \u090f\u0935\u0902 \u0905\u0928\u094d\u092f \u0932\u093e\u092d \u092d\u0940 \u092a\u094d\u0930\u0926\u093e\u0928 \u0915\u093f\u090f \u091c\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902. 5. \u0917\u094b\u092a\u0928\u0940\u092f\u0924\u093e (Confidentiality) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0915\u0902\u092a\u0928\u0940 \u0915\u0940 \u0938\u092d\u0940 \u0917\u094b\u092a\u0928\u0940\u092f \u0938\u0942\u091a\u0928\u093e\u0913\u0902, \u0924\u0915\u0928\u0940\u0915\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940, \u0935\u094d\u092f\u093e\u092a\u093e\u0930 \u0930\u0939\u0938\u094d\u092f\u094b\u0902 \u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f",
+          "language": "hindi"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "\u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f\u0915\u093e\u0930 (Intellectual Property Rights) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0926\u094d\u0935\u093e\u0930\u093e \u0938\u0947\u0935\u093e \u0905\u0935\u0927\u093f \u0915\u0947 \u0926\u094c\u0930\u093e\u0928 \u0935\u093f\u0915\u0938\u093f\u0924 \u0915\u0940 \u0917\u0908 \u0938\u092d\u0940 \u0916\u094b\u091c\u0947\u0902, \u0938\u0949\u092b\u093c\u094d\u091f\u0935\u0947\u092f\u0930, \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u090f\u0935\u0902 \u0938\u093e\u092e\u0917\u094d\u0930\u0940 \u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e \u0915\u0940 \u092c\u094c\u0926\u094d\u0927\u093f\u0915",
+          "language": "hindi"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "\u093e\u092a\u093e\u0930 \u0930\u0939\u0938\u094d\u092f\u094b\u0902 \u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f\u0915\u093e\u0930 (Intellectual Property Rights) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0926\u094d\u0935\u093e\u0930\u093e \u0938\u0947\u0935\u093e \u0905\u0935\u0927\u093f \u0915\u0947 \u0926\u094c\u0930\u093e\u0928 \u0935\u093f\u0915\u0938\u093f\u0924 \u0915\u0940 \u0917\u0908 \u0938\u092d\u0940 \u0916\u094b\u091c\u0947\u0902, \u0938\u0949\u092b\u093c\u094d\u091f\u0935\u0947\u092f\u0930, \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u090f\u0935\u0902 \u0938\u093e\u092e\u0917\u094d\u0930\u0940 \u0928\u093f\u092f\u094b\u0915\u094d",
+          "language": "hindi"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (hindi)",
+        "Termination clauses detected - review conditions (hindi)",
+        "Liability clauses found - review limits (hindi)"
+      ],
+      "processing_time": 0.9198124408721924,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "hindi"
+      }
+    },
+    "processing_time": 0.9198124408721924,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "hindi",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T13:01:01.797106",
+    "status": "completed"
+  },
+  "a67dfa19-d681-4462-9c48-358992f5db43": {
+    "_id": "a67dfa19-d681-4462-9c48-358992f5db43",
+    "document_id": "bbb50d3d-e7ae-4625-a29e-570b856352b7",
+    "analysis_results": {
+      "summary": "MASTER SERVICES AGREEMENT (High-Risk Commercial Template for Testing Purposes Only) This Master Services Agreement (\u201cAgreement\u201d) is entered into as of [Effective Date], by and between: [Company Name], a [State/Country] corporation with its principal place of business at [Address] (\u201cCompany\u201d), and [Client Name], a [State/Country] entity with its principal place of business at [Address] (\u201cClient\u201d). Company and Client may be referred to individually as a \u201cParty\u201d and collectively as the \u201cParties. 1 Company shall provide the services described in one or more Statements of Work (\u201cSOW\u201d).",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "rights to the fullest extent permitted by law. 4. CONFIDENTIALITY 4.1 \u201cConfidential Information\u201d includes all technical, financial, strategic, and operational information disclosed by either Party. 4.2 The receiving Party shall: Protect Confidential",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "or written consent. 4.3 These obligations survive termination for ten (10) years, or perpetually for trade secrets. 5. DATA PROTECTION AND SECURITY 5.1 Client acknowledges that Services may involve processing of personal data. 5.2 Company makes no wa",
+          "language": "english"
+        },
+        {
+          "type": "payment",
+          "heading": "Payment Clause",
+          "content": "nted unless explicitly stated in a signed SOW. 2. PAYMENT TERMS 2.1 Client shall pay all fees within seven (7) days of invoice date. 2.2 Late payments shall accrue interest at the greater of 2.5% per month or the maximum permitted by law, compounded",
+          "language": "english"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "tory compliance of deliverables. 7. LIMITATION OF LIABILITY 7.1 To the maximum extent permitted by law, Company\u2019s total aggregate liability shall not exceed the total fees paid by Client in the thirty (30) days preceding the claim. 7.2 Under no circu",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 25.0,
+        "termination": 25.0,
+        "payment": 25.0,
+        "liability": 25.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)",
+        "Payment terms identified - verify schedule (english)",
+        "Liability clauses found - review limits (english)"
+      ],
+      "processing_time": 0.9457581043243408,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.9457581043243408,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-09T13:03:35.312974",
+    "status": "completed"
+  },
+  "e1d51bb5-862e-40cf-8171-9114898a4582": {
+    "_id": "e1d51bb5-862e-40cf-8171-9114898a4582",
+    "document_id": "f472f501-1373-44b8-afdd-b6a72dcc8f72",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 1.1289525032043457,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 1.1289525032043457,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-12T09:01:32.381013",
+    "status": "completed"
+  },
+  "8e75cc42-ff9d-41e7-be82-ca18e63421ed": {
+    "_id": "8e75cc42-ff9d-41e7-be82-ca18e63421ed",
+    "document_id": "00536d06-d2da-477f-b347-5e18d6ac064b",
+    "analysis_results": {
+      "summary": "\u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f \u090f\u0935\u0902 \u0938\u0947\u0935\u093e \u0905\u0928\u0941\u092c\u0902\u0927 (Employment Agreement) \u092f\u0939 \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f \u090f\u0935\u0902 \u0938\u0947\u0935\u093e \u0905\u0928\u0941\u092c\u0902\u0927 (\u201c\u0905\u0928\u0941\u092c\u0902\u0927\u201d) \u0926\u093f\u0928\u093e\u0902\u0915 01 \u091c\u0928\u0935\u0930\u0940 2026 \u0915\u094b, \u0915\u0902\u092a\u0928\u0940: \u090f\u092c\u0940\u0938\u0940 \u091f\u0947\u0915\u094d\u0928\u094b\u0932\u0949\u091c\u0940\u091c\u093c \u092a\u094d\u0930\u093e\u0907\u0935\u0947\u091f \u0932\u093f\u092e\u093f\u091f\u0947\u0921, \u091c\u093f\u0938\u0915\u093e \u092a\u0902\u091c\u0940\u0915\u0943\u0924 \u0915\u093e\u0930\u094d\u092f\u093e\u0932\u092f: \u0928\u0908 \u0926\u093f\u0932\u094d\u0932\u0940 \u2013 110001 (\u091c\u093f\u0938\u0947 \u0906\u0917\u0947 \u201c\u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e\u201d \u0915\u0939\u093e \u091c\u093e\u090f\u0917\u093e) \u0914\u0930 \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940: \u0936\u094d\u0930\u0940 \u0930\u093e\u0939\u0941\u0932 \u0915\u0941\u092e\u093e\u0930, \u0928\u093f\u0935\u093e\u0938\u0940: \u091c\u092f\u092a\u0941\u0930, \u0930\u093e\u091c\u0938\u094d\u0925\u093e\u0928 (\u091c\u093f\u0938\u0947 \u0906\u0917\u0947 \u201c\u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940\u201d \u0915\u0939\u093e \u091c\u093e\u090f\u0917\u093e) \u0915\u0947 \u092c\u0940\u091a \u0938\u0902\u092a\u093e\u0926\u093f\u0924 \u0915\u093f\u092f\u093e \u0917\u092f\u093e. \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u093f (Appointment) \u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0915\u094b \u0938\u0949\u092b\u094d\u091f\u0935\u0947\u092f\u0930 \u0907\u0902\u091c\u0940\u0928\u093f\u092f\u0930 \u0915\u0947 \u092a\u0926 \u092a\u0930 \u0928\u093f\u092f\u0941\u0915\u094d\u0924 \u0915\u0930\u0924\u093e \u0939\u0948. \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0907\u0938 \u092a\u0926 \u0938\u0947 \u0938\u0902\u092c\u0902\u0927\u093f\u0924 \u0938\u092d\u0940 \u0915\u0930\u094d\u0924\u0935\u094d\u092f\u094b\u0902 \u0915\u093e \u0908\u092e\u093e\u0928\u0926\u093e\u0930\u0940 \u090f\u0935\u0902 \u0928\u093f\u0937\u094d\u0920\u093e \u0938\u0947 \u092a\u093e\u0932\u0928 \u0915\u0930\u0947\u0917\u093e.",
+      "language": "hindi",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": ", \u092c\u0940\u092e\u093e \u090f\u0935\u0902 \u0905\u0928\u094d\u092f \u0932\u093e\u092d \u092d\u0940 \u092a\u094d\u0930\u0926\u093e\u0928 \u0915\u093f\u090f \u091c\u093e \u0938\u0915\u0924\u0947 \u0939\u0948\u0902. 5. \u0917\u094b\u092a\u0928\u0940\u092f\u0924\u093e (Confidentiality) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0915\u0902\u092a\u0928\u0940 \u0915\u0940 \u0938\u092d\u0940 \u0917\u094b\u092a\u0928\u0940\u092f \u0938\u0942\u091a\u0928\u093e\u0913\u0902, \u0924\u0915\u0928\u0940\u0915\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940, \u0935\u094d\u092f\u093e\u092a\u093e\u0930 \u0930\u0939\u0938\u094d\u092f\u094b\u0902 \u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f",
+          "language": "hindi"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "\u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f\u0915\u093e\u0930 (Intellectual Property Rights) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0926\u094d\u0935\u093e\u0930\u093e \u0938\u0947\u0935\u093e \u0905\u0935\u0927\u093f \u0915\u0947 \u0926\u094c\u0930\u093e\u0928 \u0935\u093f\u0915\u0938\u093f\u0924 \u0915\u0940 \u0917\u0908 \u0938\u092d\u0940 \u0916\u094b\u091c\u0947\u0902, \u0938\u0949\u092b\u093c\u094d\u091f\u0935\u0947\u092f\u0930, \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u090f\u0935\u0902 \u0938\u093e\u092e\u0917\u094d\u0930\u0940 \u0928\u093f\u092f\u094b\u0915\u094d\u0924\u093e \u0915\u0940 \u092c\u094c\u0926\u094d\u0927\u093f\u0915",
+          "language": "hindi"
+        },
+        {
+          "type": "liability",
+          "heading": "Liability Clause",
+          "content": "\u093e\u092a\u093e\u0930 \u0930\u0939\u0938\u094d\u092f\u094b\u0902 \u090f\u0935\u0902 \u0917\u094d\u0930\u093e\u0939\u0915 \u0935\u093f\u0935\u0930\u0923 \u0915\u094b \u0917\u094b\u092a\u0928\u0940\u092f \u0930\u0916\u0947\u0917\u093e. \u092f\u0939 \u0926\u093e\u092f\u093f\u0924\u094d\u0935 \u0938\u0947\u0935\u093e \u0938\u092e\u093e\u092a\u094d\u0924\u093f \u0915\u0947 \u092a\u0936\u094d\u091a\u093e\u0924 \u092d\u0940 \u0932\u093e\u0917\u0942 \u0930\u0939\u0947\u0917\u093e. 6. \u092c\u094c\u0926\u094d\u0927\u093f\u0915 \u0938\u0902\u092a\u0926\u093e \u0905\u0927\u093f\u0915\u093e\u0930 (Intellectual Property Rights) \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0926\u094d\u0935\u093e\u0930\u093e \u0938\u0947\u0935\u093e \u0905\u0935\u0927\u093f \u0915\u0947 \u0926\u094c\u0930\u093e\u0928 \u0935\u093f\u0915\u0938\u093f\u0924 \u0915\u0940 \u0917\u0908 \u0938\u092d\u0940 \u0916\u094b\u091c\u0947\u0902, \u0938\u0949\u092b\u093c\u094d\u091f\u0935\u0947\u092f\u0930, \u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u090f\u0935\u0902 \u0938\u093e\u092e\u0917\u094d\u0930\u0940 \u0928\u093f\u092f\u094b\u0915\u094d",
+          "language": "hindi"
+        }
+      ],
+      "classification": {
+        "confidentiality": 33.33333333333333,
+        "termination": 33.33333333333333,
+        "liability": 33.33333333333333
+      },
+      "risks": [
+        "Confidentiality obligations detected (hindi)",
+        "Termination clauses detected - review conditions (hindi)",
+        "Liability clauses found - review limits (hindi)"
+      ],
+      "processing_time": 0.03039717674255371,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "hindi"
+      }
+    },
+    "processing_time": 0.03039717674255371,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "hindi",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-12T09:11:22.968606",
+    "status": "completed"
+  },
+  "74ebe432-86ab-493f-9f2c-bc58a21aa3a9": {
+    "_id": "74ebe432-86ab-493f-9f2c-bc58a21aa3a9",
+    "document_id": "8f553d55-ec3f-44d1-82cb-d36a8437a365",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.03223013877868652,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.03223013877868652,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-12T09:16:31.131256",
+    "status": "completed"
+  },
+  "de8208b5-6895-465c-aaa7-04420f75b630": {
+    "_id": "de8208b5-6895-465c-aaa7-04420f75b630",
+    "document_id": "8d49c9b4-c68c-4063-aa04-a62ca8c894bf",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.013218879699707031,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.013218879699707031,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-12T09:23:54.049102",
+    "status": "completed"
+  },
+  "275370a9-2ca9-4d26-8fc6-32a98ca0c11e": {
+    "_id": "275370a9-2ca9-4d26-8fc6-32a98ca0c11e",
+    "document_id": "8f553d55-ec3f-44d1-82cb-d36a8437a365",
+    "analysis_results": {
+      "summary": "GLOBAL TECH SOLUTIONS INC. , a Delaware corporation (\u201cEmployer\u201d), and Priya Patel, an individual resident of 789 Market Street, San Francisco, CA 94103 (\u201cEmployee\u201d). RECITALS WHEREAS, Employer desires to employ Employee, and Employee desires to accept such employment under the terms below; 1.",
+      "language": "english",
+      "clauses": [
+        {
+          "type": "confidentiality",
+          "heading": "Confidentiality Clause",
+          "content": "e; 401(k) matching; four weeks\u2019 paid vacation. 4. Confidentiality and Invention Assignment 4.1 Employee shall sign the Confidentiality & Invention Assignment Agreement attached as Exhibit A. 4.2 All inventions created during employment belong exclusi",
+          "language": "english"
+        },
+        {
+          "type": "termination",
+          "heading": "Termination Clause",
+          "content": "employees or clients for twelve (12) months post-termination. 6. Termination 6.1 Employer may terminate for Cause (as defined below) immediately; for convenience upon thirty (30) days\u2019 notice. 6.2 \u201cCause\u201d includes: (a) material breach, (b) dishonest",
+          "language": "english"
+        }
+      ],
+      "classification": {
+        "confidentiality": 50.0,
+        "termination": 50.0
+      },
+      "risks": [
+        "Confidentiality obligations detected (english)",
+        "Termination clauses detected - review conditions (english)"
+      ],
+      "processing_time": 0.0162661075592041,
+      "analysis_type": "fast_multilingual",
+      "model_versions": {
+        "summarizer": "extractive",
+        "language": "english"
+      }
+    },
+    "processing_time": 0.0162661075592041,
+    "model_versions": {
+      "summarizer": "extractive",
+      "language": "english",
+      "analysis_type": "fast_multilingual"
+    },
+    "created_at": "2026-02-12T09:24:22.243212",
+    "status": "completed"
+  }
+}

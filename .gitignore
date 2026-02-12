@@ -1,12 +1,14 @@
-# Byte-compiled / optimized / DLL files
+# General
+.DS_Store
+.Thumb.db
+*.log
+*.tmp
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-
-# C extensions
 *.so
-
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -20,209 +22,49 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
+# Virtual Environment
+venv/
+env/
+.env
+.venv
+env.bak/
+venv.bak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# IPython
-profile_default/
-ipython_config.py
+# PyInstaller
+*.manifest
+*.spec
 
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypa__/
-
-# Celery stuff
+# Celery
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
-*.sage.py
+# Flask
+instance/
+.webassets-cache
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# IDE / Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs
-*.log
-logs/
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Temporary files
-*.tmp
-*.temp
-
-# Uploads (if not needed in repo)
-uploads/
-data/
-
-# ML models and large files
-*.bin
-*.pkl
-*.h5
-*.pb
-*.onnx
-*.pt
-*.pth
-*.ckpt
-*.tar.gz
-*.zip
-
-# Docker
-.dockerignore
-docker-compose.override.yml
-
-# Node.js (if any)
+# Node.js
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-dist/
-build/
 
-# Secrets
-secrets/
-*.key
-*.pem
+# React
+frontend/build/
+frontend/dist/
 
-# Reports
-reports/
+# IDEs
+.vscode/
+.idea/
 
-# Data files
-*.csv
-*.json
-
-# Generated exports
-export_*.pdf
-export_*.docx
-
-# Development documentation
-*_IMPLEMENTED.md
-*_FIX_SUMMARY.md
-*_SUCCESS.md
-
-# Test files
-test_*.py
-test_*.js
-test_*.txt
-
-# Temporary test data
-test.txt
-test_*.txt
-
-# Development utilities
-check_docs.py
-query
-start_backend.py
-verify_celery.py
-minimal_celery_test.py
-
-# UI redesign (if not merged)
-UI_REDESIGN/
-
-# Gitignore updates
-.gitignore_updated
-
-# Virtual environments
-venv/
-env/
-ENV/
+# Project Specific
+# (Add any specific temporary files here if needed)
+# Avoid ignoring valid source files unless they are auto-generated
