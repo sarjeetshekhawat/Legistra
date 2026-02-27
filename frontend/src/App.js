@@ -11,6 +11,7 @@ import Settings from './pages/Settings';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Landing from './pages/Landing';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -73,6 +74,9 @@ function AppContent() {
   return (
     <>
       <Routes>
+        {/* Landing page */}
+        <Route path="/landing" element={<Landing />} />
+        
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
