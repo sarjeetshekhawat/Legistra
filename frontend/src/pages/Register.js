@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import Logo from '../components/Logo';
+import { useAuth } from '../contexts/AuthContext';
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -13,13 +13,13 @@ const Register = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { t } = useLanguage();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    // Validate passwords match
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       setLoading(false);
@@ -43,16 +43,13 @@ const Register = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Store JWT token
-        localStorage.setItem('legistra_token', data.token);
-        localStorage.setItem('legistra_user', JSON.stringify({
+        // Use AuthContext login to update state properly
+        login(data.token, {
           user_id: data.user_id,
           email: data.email,
           first_name: data.first_name,
           last_name: data.last_name
-        }));
-        
-        // Redirect to upload page
+        });
         navigate('/upload');
       } else {
         setError(data.error || 'Registration failed');
@@ -65,24 +62,30 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen bg-dark-background text-white flex items-center justify-center relative overflow-hidden py-12 px-4 sm:px-6 lg:px-8">
+      {/* Background gradient elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-40"></div>
+
+      <div className="max-w-md w-full space-y-8 relative z-10">
+        {/* Header */}
         <div className="text-center">
-          <div className="mx-auto">
-            <Logo size="large" className="mb-4" />
-          </div>
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
+          <Link to="/landing" className="inline-block text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-2">
+            Legistra
+          </Link>
+          <h2 className="mt-4 text-3xl font-extrabold text-white">
             {t('register')}
           </h2>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-sm text-gray-400">
             {t('registerDescription')}
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 py-8 px-6 shadow-lg rounded-lg">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+        {/* Form Card */}
+        <div className="bg-dark-card/80 backdrop-blur-sm py-8 px-6 shadow-xl rounded-xl border border-dark-border">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-700 rounded-md p-4">
+              <div className="bg-red-900/50 border border-red-500/50 rounded-lg p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
@@ -90,7 +93,7 @@ const Register = () => {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-red-800 dark:text-red-200">{error}</p>
+                    <p className="text-sm text-red-200">{error}</p>
                   </div>
                 </div>
               </div>
@@ -98,7 +101,7 @@ const Register = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-1">
                   {t('firstName')}
                 </label>
                 <input
@@ -108,13 +111,13 @@ const Register = () => {
                   autoComplete="given-name"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="appearance-none relative block w-full px-4 py-3 border border-dark-border placeholder-gray-500 text-white bg-dark-background rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm transition-all duration-200"
                   placeholder={t('firstNamePlaceholder')}
                 />
               </div>
 
               <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-1">
                   {t('lastName')}
                 </label>
                 <input
@@ -124,14 +127,14 @@ const Register = () => {
                   autoComplete="family-name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="appearance-none relative block w-full px-4 py-3 border border-dark-border placeholder-gray-500 text-white bg-dark-background rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm transition-all duration-200"
                   placeholder={t('lastNamePlaceholder')}
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                 {t('email')}
               </label>
               <input
@@ -142,13 +145,13 @@ const Register = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="appearance-none relative block w-full px-4 py-3 border border-dark-border placeholder-gray-500 text-white bg-dark-background rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm transition-all duration-200"
                 placeholder={t('emailPlaceholder')}
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
                 {t('password')}
               </label>
               <input
@@ -159,13 +162,13 @@ const Register = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="appearance-none relative block w-full px-4 py-3 border border-dark-border placeholder-gray-500 text-white bg-dark-background rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm transition-all duration-200"
                 placeholder={t('passwordPlaceholder')}
               />
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-1">
                 {t('confirmPassword')}
               </label>
               <input
@@ -176,7 +179,7 @@ const Register = () => {
                 required
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-700 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="appearance-none relative block w-full px-4 py-3 border border-dark-border placeholder-gray-500 text-white bg-dark-background rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent sm:text-sm transition-all duration-200"
                 placeholder={t('confirmPasswordPlaceholder')}
               />
             </div>
@@ -185,7 +188,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-lg text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:-translate-y-0.5"
               >
                 {loading ? (
                   <>
@@ -204,27 +207,34 @@ const Register = () => {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                <div className="w-full border-t border-dark-border"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                <span className="px-2 bg-dark-card text-gray-400">
                   {t('or')}
                 </span>
               </div>
             </div>
 
             <div className="mt-6 text-center">
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-sm text-gray-400">
                 {t('haveAccount')}{' '}
                 <button
                   onClick={() => navigate('/login')}
-                  className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+                  className="font-medium text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   {t('signIn')}
                 </button>
               </span>
             </div>
           </div>
+        </div>
+
+        {/* Back to landing */}
+        <div className="text-center">
+          <Link to="/landing" className="text-sm text-gray-400 hover:text-white transition-colors">
+            ← Back to Home
+          </Link>
         </div>
       </div>
     </div>

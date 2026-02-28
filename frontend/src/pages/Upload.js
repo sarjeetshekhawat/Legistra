@@ -98,12 +98,6 @@ function Upload() {
     } catch (err) {
       // Extract error message from response
       let errorMsg = 'Upload failed. Please try again.';
-      
-      console.error('Full error object:', err);
-      console.error('Error response:', err.response);
-      console.error('Error request:', err.request);
-      console.error('Error message:', err.message);
-      
       if (err.response) {
         // Server responded with error status
         const status = err.response.status;

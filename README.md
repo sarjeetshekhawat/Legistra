@@ -1,141 +1,118 @@
-# Legistra - AI-Powered Legal Document Analysis
+# Legistra — AI-Powered Legal Document Analysis
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![React](https://img.shields.io/badge/react-18-blue)
-![Status](https://img.shields.io/badge/status-production--ready-green)
+![Python](https://img.shields.io/badge/python-3.11-3776AB?logo=python&logoColor=white)
+![React](https://img.shields.io/badge/react-18-61DAFB?logo=react&logoColor=white)
+![Supabase](https://img.shields.io/badge/supabase-PostgreSQL-3FCF8E?logo=supabase&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-ready-2496ED?logo=docker&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-**Legistra is a production-ready platform for automated legal document analysis, contract review, and risk assessment using advanced NLP and machine learning.**
+> Upload contracts, detect risks, and extract key clauses instantly with advanced NLP.  
+> Built for legal professionals, startups, and students.
 
 ---
 
-## 🚀 Overview
+## ✨ Features
 
-Legistra transforms how legal professionals handle document review by automating time-consuming analysis tasks. The platform processes legal documents (PDF, DOCX, TXT) to extract key clauses, identify risks, generate summaries, and provide actionable insights—saving hours of manual review time while improving accuracy.
+- **Multi-format upload** — PDF, DOCX, TXT
+- **AI clause extraction** — Liability, payment, confidentiality, termination
+- **Risk detection** — Critical / high / medium / low severity scoring
+- **Multilingual** — English, Hindi, Marathi
+- **Interactive dashboard** — Charts, stats, document overview
+- **PDF export** — One-click professional analysis reports
+- **JWT authentication** — Secure session management
+- **Dockerized** — One-command deployment with docker-compose
 
-## ✨ Key Features
+## 🏗️ Tech Stack
 
-- **📄 Multi-Format Support**: Seamlessly upload and analyze PDF, DOCX, and TXT documents.
-- **mj🤖 AI-Powered Analysis**: specialized NLP models for clause extraction, risk detection, and summarization.
-- **🌍 Multilingual Processing**: Native support for English, Hindi, and Marathi legal documents.
-- **⚡ Real-time Processing**: Asynchronous task queue architecture for handling large documents without blocking.
-- **📊 Interactive Dashboard**: Visual insights into risk distribution and document metrics.
-- **📑 Professional Reports**: One-click PDF export of detailed analysis reports.
-- **🔒 Secure & Private**: Enterprise-grade security with local processing capabilities.
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Tailwind CSS, Chart.js |
+| Backend | Flask, Gunicorn, Python 3.11 |
+| Database | Supabase (PostgreSQL) |
+| Storage | Supabase Storage |
+| AI / NLP | spaCy, PyTorch, Hugging Face Transformers |
+| DevOps | Docker, docker-compose, nginx |
 
-## 🛠️ Technology Stack
+## 📐 Architecture
 
-### Backend
-- **Framework**: Flask (Python)
-- **Task Queue**: Celery + Redis
-- **Database**: MongoDB (Metadata & Results), PostgreSQL (User Data - optional)
-- **ML/NLP**: Hugging Face Transformers, spaCy, PyTorch
-- **PDF Generation**: ReportLab
+```
+Browser (:80)  →  nginx  →  React SPA (static files)
+                    ↓
+                /api/*  →  Flask / Gunicorn (:5000)  →  Supabase (external)
+```
 
-### Frontend
-- **Framework**: React 18
-- **Styling**: Tailwind CSS, ShadCN/UI
-- **State Management**: React Context / Hooks
-- **Visualization**: Chart.js
+## 🚀 Quick Start
+
+### Docker (recommended)
+
+```bash
+git clone https://github.com/yourusername/Legistra.git
+cd Legistra
+cp backend/.env.example backend/.env
+# Edit backend/.env with your Supabase URL and Key
+docker-compose up --build
+# Open http://localhost
+```
+
+### Manual Setup
+
+```bash
+# Backend
+cd backend
+python -m venv venv
+venv\Scripts\activate          # Windows
+pip install -r requirements.txt
+cp .env.example .env           # Edit with real Supabase credentials
+python app.py
+
+# Frontend (new terminal)
+cd frontend
+npm install
+npm start                      # Opens http://localhost:3000
+```
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/auth/register` | Register a new user |
+| POST | `/auth/login` | Login (returns JWT) |
+| POST | `/api/upload-document` | Upload legal document |
+| POST | `/api/analyze-document-fast-multilingual` | Run AI analysis |
+| GET | `/api/documents` | List user's documents |
+| GET | `/api/dashboard-stats` | Dashboard metrics |
+| POST | `/api/export-analysis` | Export as PDF report |
+| GET | `/api/health` | Health check |
 
 ## 📂 Project Structure
 
 ```
 Legistra/
-├── backend/                # Flask API & Worker Nodes
-│   ├── models/             # Database Models
-│   ├── utils/              # Helper Functions & File Processors
-│   ├── app.py              # Application Entry Point
-│   ├── celery_app.py       # Celery Configuration
-│   ├── tasks.py            # Async Tasks Definitions
-│   └── ...
-├── frontend/               # React Client Application
-│   ├── src/                # Components, Pages, Hooks
-│   ├── public/             # Static Assets
-│   └── ...
-├── ml/                     # Machine Learning Pipeline
-│   ├── data/               # Dataset Scripts
-│   ├── models/             # ML Model Definitions
-│   └── ...
-├── docs/                   # Additional Documentation
-└── README.md               # Project Documentation
+├── backend/
+│   ├── app.py                 # Flask application
+│   ├── models_supabase.py     # Supabase data layer
+│   ├── ml_analysis_sync.py    # AI/ML analysis pipeline
+│   ├── auth.py                # JWT authentication
+│   ├── config.py              # Environment configuration
+│   ├── Dockerfile             # Multi-stage production build
+│   └── requirements.txt
+├── frontend/
+│   ├── src/pages/             # React pages
+│   ├── src/components/        # Reusable components
+│   ├── Dockerfile             # React build → nginx
+│   └── nginx.conf             # Reverse proxy config
+├── docker-compose.yml         # Orchestration
+└── README.md
 ```
 
-## 🚀 Quick Start
+## 🔒 Security
 
-### Prerequisites
-- Python 3.8+
-- Node.js 14+
-- MongoDB
-- Redis Server
-
-### 1. Backend Setup
-
-```bash
-# Navigate to backend
-cd backend
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure environment
-cp .env.example .env
-# Update .env with your database credentials
-```
-
-### 2. Frontend Setup
-
-```bash
-# Navigate to frontend
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm start
-```
-
-### 3. Running Services
-
-Ensure MongoDB and Redis are running, then start the backend workers and API:
-
-```bash
-# Terminal 1: Celery Worker
-cd backend
-celery -A celery_app worker --loglevel=info
-
-# Terminal 2: API Helper
-cd backend
-python app.py
-```
-
-## 🔌 API Overview
-
-Legistra provides a comprehensive REST API. Key endpoints:
-
-- **Auth**: `/auth/login`, `/auth/register`
-- **Documents**: `/api/upload-document`, `/api/documents`, `/api/search-documents`
-- **Analysis**: `/api/analyze-document`, `/api/task-status/<task_id>`
-- **Stats**: `/api/dashboard-stats`
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Passwords hashed with PBKDF2 (Werkzeug)
+- JWT tokens (HS256) with 24-hour expiry
+- CORS restricted to allowed origins
+- Non-root Docker container user
+- Environment secrets never baked into images
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-*Built with ❤️ by Sarjeet Shekhawat*
+MIT — Built by **Sarjeet Shekhawat**

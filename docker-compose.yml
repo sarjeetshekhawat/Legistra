@@ -1,0 +1,36 @@
+# ==============================================================
+# Legistra — Docker Compose
+# ==============================================================
+# Run both backend and frontend with:
+#   docker-compose up --build
+# ==============================================================
+
+services:
+  # ---- Backend (Flask + Gunicorn) ----
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legistra-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    volumes:
+      - uploads_data:/app/uploads
+    restart: unless-stopped
+
+  # ---- Frontend (React + Nginx) ----
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: legistra-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  uploads_data:

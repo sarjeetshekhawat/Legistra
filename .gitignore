@@ -66,5 +66,7 @@ frontend/dist/
 .idea/
 
 # Project Specific
-# (Add any specific temporary files here if needed)
-# Avoid ignoring valid source files unless they are auto-generated
+backend/.env
+backend/uploads/
+backend/data/
+*.pid

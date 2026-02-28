@@ -14,17 +14,22 @@ const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showShortcutHelp, setShowShortcutHelp] = useState(false);
 
-  // Initialize dark mode from localStorage
+  // Initialize dark mode from localStorage (unified with Settings page)
   useEffect(() => {
-    const savedTheme = localStorage.getItem('legistra_theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
-    setIsDarkMode(shouldBeDark);
-    if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
+    const savedSettings = localStorage.getItem('legistra_settings');
+    if (savedSettings) {
+      const settings = JSON.parse(savedSettings);
+      const shouldBeDark = settings.theme !== 'light';
+      setIsDarkMode(shouldBeDark);
+      if (shouldBeDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     } else {
-      document.documentElement.classList.remove('dark');
+      // Default to dark mode
+      setIsDarkMode(true);
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
@@ -33,12 +38,16 @@ const Header = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     
+    // Read existing settings and update theme
+    const savedSettings = localStorage.getItem('legistra_settings');
+    const settings = savedSettings ? JSON.parse(savedSettings) : {};
+    settings.theme = newMode ? 'dark' : 'light';
+    localStorage.setItem('legistra_settings', JSON.stringify(settings));
+
     if (newMode) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('legistra_theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('legistra_theme', 'light');
     }
   };
 
@@ -83,14 +92,14 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-200 relative z-50">
+      <header className="bg-white dark:bg-dark-card shadow-sm border-b border-gray-200 dark:border-dark-border transition-colors duration-200 relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-3">
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
+                className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-dark-background transition-colors"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
@@ -121,7 +130,7 @@ const Header = () => {
               {/* Dark Mode Toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700 transition-all duration-200"
+                className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-dark-background transition-all duration-200"
                 aria-label="Toggle dark mode"
                 title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
@@ -177,8 +186,8 @@ const Header = () => {
           />
           
           {/* Menu panel */}
-          <div className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-2xl z-50 md:hidden animate-slide-in-left">
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-dark-card shadow-2xl z-50 md:hidden animate-slide-in-left">
+            <div className="p-4 border-b border-gray-200 dark:border-dark-border">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <Logo size="small" />
@@ -188,7 +197,7 @@ const Header = () => {
                 </div>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                  className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-dark-background"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -197,7 +206,7 @@ const Header = () => {
               </div>
               
               {/* User info */}
-              <div className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-dark-background rounded-lg">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-md">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -225,7 +234,7 @@ const Header = () => {
                         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                           isActive
                             ? 'bg-primary-50 text-primary-700 dark:bg-primary-900 dark:text-primary-200 border-l-4 border-primary-600'
-                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-background'
                         }`}
                       >
                         <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +249,7 @@ const Header = () => {
             </nav>
 
             {/* Footer actions */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 dark:border-dark-border bg-white dark:bg-dark-card">
               <button
                 onClick={handleLogout}
                 className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-danger-50 text-danger-700 dark:bg-danger-900 dark:text-danger-200 rounded-lg font-medium hover:bg-danger-100 dark:hover:bg-danger-800 transition-colors"

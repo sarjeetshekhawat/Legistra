@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 function Settings() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [notifications, setNotifications] = useState(true);
   const [language, setLanguage] = useState('en');
   const [autoAnalysis, setAutoAnalysis] = useState(false);
@@ -185,23 +185,23 @@ function Settings() {
       </div>
 
       {/* Analysis Settings */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white dark:bg-dark-card rounded-lg shadow-sm border border-gray-200 dark:border-dark-border overflow-hidden">
         <div className="p-6">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h2 className="text-lg font-semibold text-gray-900">Analysis Settings</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Analysis Settings</h2>
           </div>
           
           <div className="space-y-6">
             {/* Auto Analysis */}
             <div className="flex items-center justify-between">
               <div>
-                <label className="text-sm font-medium text-gray-700">Auto Analysis</label>
-                <p className="text-sm text-gray-500">Automatically analyze uploaded documents</p>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Auto Analysis</label>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Automatically analyze uploaded documents</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -211,7 +211,7 @@ function Settings() {
                   className="sr-only"
                 />
                 <div className={`relative w-11 h-6 rounded-full transition-colors ${
-                  autoAnalysis ? 'bg-blue-600' : 'bg-gray-200'
+                  autoAnalysis ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-600'
                 }`}>
                   <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
                     autoAnalysis ? 'translate-x-5' : 'translate-x-0'
@@ -222,11 +222,11 @@ function Settings() {
 
             {/* Export Format */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Default Export Format</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Default Export Format</label>
               <select 
                 value={exportFormat} 
                 onChange={handleExportFormatChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-dark-border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-dark-background dark:text-white"
               >
                 <option value="pdf">PDF</option>
                 <option value="docx">Word Document</option>
@@ -238,8 +238,8 @@ function Settings() {
             {/* Email Alerts */}
             <div className="flex items-center justify-between">
               <div>
-                <label className="text-sm font-medium text-gray-700">Email Alerts</label>
-                <p className="text-sm text-gray-500">Receive analysis results via email</p>
+                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email Alerts</label>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Receive analysis results via email</p>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -249,7 +249,7 @@ function Settings() {
                   className="sr-only"
                 />
                 <div className={`relative w-11 h-6 rounded-full transition-colors ${
-                  emailAlerts ? 'bg-blue-600' : 'bg-gray-200'
+                  emailAlerts ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-600'
                 }`}>
                   <div className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${
                     emailAlerts ? 'translate-x-5' : 'translate-x-0'
@@ -262,41 +262,41 @@ function Settings() {
       </div>
 
       {/* Account Settings */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className="bg-white dark:bg-dark-card rounded-lg shadow-sm border border-gray-200 dark:border-dark-border overflow-hidden">
         <div className="p-6">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
               <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
-            <h2 className="text-lg font-semibold text-gray-900">Account Settings</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Account Settings</h2>
           </div>
           
           <div className="space-y-4">
-            <div className="border-t pt-4">
+            <div className="border-t border-gray-200 dark:border-dark-border pt-4">
               <div className="flex items-center justify-between py-3">
                 <div>
-                  <p className="text-sm font-medium text-gray-700">Email Address</p>
-                  <p className="text-sm text-gray-500">user@example.com</p>
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">user@example.com</p>
                 </div>
-                <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">Change</button>
+                <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium">Change</button>
               </div>
               
               <div className="flex items-center justify-between py-3">
                 <div>
-                  <p className="text-sm font-medium text-gray-700">Password</p>
-                  <p className="text-sm text-gray-500">Last changed 30 days ago</p>
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Password</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Last changed 30 days ago</p>
                 </div>
-                <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">Update</button>
+                <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium">Update</button>
               </div>
               
               <div className="flex items-center justify-between py-3">
                 <div>
-                  <p className="text-sm font-medium text-gray-700">API Key</p>
-                  <p className="text-sm text-gray-500">•••••••••••••••••••••</p>
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-300">API Key</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">•••••••••••••••••••••</p>
                 </div>
-                <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">Regenerate</button>
+                <button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium">Regenerate</button>
               </div>
             </div>
           </div>

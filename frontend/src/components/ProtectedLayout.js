@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 const ProtectedLayout = ({ children, activeTab, setActiveTab }) => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div className="min-h-screen bg-white dark:bg-dark-background transition-colors duration-200">
       <Header />
       <div className="flex">
         <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />

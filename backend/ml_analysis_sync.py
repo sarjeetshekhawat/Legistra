@@ -4,7 +4,7 @@ path_to_add = os.path.join(os.path.dirname(__file__), '..')
 print(f"Adding path: {path_to_add}")
 sys.path.append(path_to_add)
 
-from models import MongoDB, DBManager
+from models_supabase import SupabaseDB, DBManager
 from config import config
 import logging
 import time
@@ -23,7 +23,7 @@ def get_db_manager():
     """Get or create DB manager instance"""
     global mongo_db, db_manager
     if mongo_db is None or db_manager is None:
-        mongo_db = MongoDB(uri=config[env].MONGODB_URI, db_name=config[env].MONGO_DB)
+        mongo_db = SupabaseDB()
         db_manager = DBManager(mongo_db)
     return db_manager
 

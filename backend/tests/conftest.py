@@ -3,10 +3,11 @@ import os
 import tempfile
 from app import app
 
+
 @pytest.fixture
 def client():
-    app.config['MONGODB_URI'] = 'mongodb+srv://Username: Password@1.1locgnd.mongodb.net/?retryWrites=true&w=majority&appName=1'
-    app.config['MONGO_DB'] = 'test_legal_docs'
+    app.config['SUPABASE_URL'] = os.getenv('SUPABASE_URL', 'https://test-project.supabase.co')
+    app.config['SUPABASE_KEY'] = os.getenv('SUPABASE_KEY', 'test-key')
     app.config['UPLOAD_FOLDER'] = tempfile.mkdtemp()
     with app.test_client() as client:
         yield client

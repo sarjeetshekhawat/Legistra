@@ -6,7 +6,7 @@ sys.path.append(path_to_add)
 print(f"sys.path: {sys.path}")
 
 from celery_app import celery_app
-from models import MongoDB, DBManager
+from models_supabase import SupabaseDB, DBManager
 from config import config
 import time
 import torch
@@ -29,7 +29,7 @@ def get_db_manager():
     """Get or create DB manager instance"""
     global mongo_db, db_manager
     if mongo_db is None or db_manager is None:
-        mongo_db = MongoDB(uri=config[env].MONGODB_URI, db_name=config[env].MONGO_DB)
+        mongo_db = SupabaseDB()
         db_manager = DBManager(mongo_db)
     return db_manager
 

@@ -71,7 +71,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   };
 
   return (
-    <nav className="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen hidden md:block transition-colors duration-200">
+    <nav className="w-64 bg-white dark:bg-dark-card border-r border-gray-200 dark:border-dark-border min-h-screen hidden md:block transition-colors duration-200">
       <div className="p-4">
         <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
           Navigation
@@ -87,7 +87,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                     flex items-center w-full px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
                     ${isActive
                       ? 'bg-blue-600 text-white'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-background'
                     }
                   `}
                 >

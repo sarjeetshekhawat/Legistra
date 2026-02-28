@@ -1,13 +1,13 @@
 from flask import Blueprint, request, jsonify, current_app
-from models_simple import MongoDB
+from models_supabase import SupabaseDB
 from auth import jwt_manager, token_required, validate_registration_data, validate_login_data
 from werkzeug.security import check_password_hash
 
 # Create auth blueprint
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-# Initialize MongoDB connection
-mongo_db = MongoDB()
+# Initialize Supabase DB connection
+mongo_db = SupabaseDB()  # kept as 'mongo_db' variable name to minimise changes below
 
 @auth_bp.route('/register', methods=['POST'])
 def register():

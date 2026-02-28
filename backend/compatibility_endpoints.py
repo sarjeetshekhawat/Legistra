@@ -13,11 +13,12 @@ from reportlab.pdfgen import canvas
 from reportlab.platypus import Image
 import os
 
-# Import the global simple_db instance
+# Import Supabase DB layer
 import sys
 import os
 sys.path.append(os.path.dirname(__file__))
-from models_simple import simple_db
+from models_supabase import SupabaseDB
+supabase_db = SupabaseDB()
 import io
 from config import config
 
@@ -107,8 +108,8 @@ def export_analysis_temp(document_id):
     logger.info(f"Export analysis called for document: {document_id}")
     
     try:
-        # Get analysis from simple_db
-        all_analysis = simple_db._read_analysis()
+        # Get analysis from Supabase
+        all_analysis = supabase_db.read_all_analysis()
         analysis = None
         for analysis_id, analysis_data in all_analysis.items():
             if analysis_data.get('document_id') == document_id:
@@ -328,24 +329,24 @@ def analyze_document_fast_multilingual_temp(mongo_db, simple_db):
         
         logger.info(f"Starting fast multilingual ML analysis for document: {document_id}")
         
-        # Debug: Check simple_db instance
-        logger.info(f"Using simple_db instance: {simple_db}")
+        # Debug: Check db instance
+        logger.info(f"Using supabase_db instance: {simple_db}")
         
         # Debug: List all documents
-        all_docs = simple_db._read_documents()
+        all_docs = simple_db.read_all_documents()
         logger.info(f"Available documents ({len(all_docs)}):")
         for doc_id, doc_data in all_docs.items():
             logger.info(f"  - {doc_id}: {doc_data.get('filename', 'N/A')}")
         
-        # Use simple_db to get the document
+        # Use Supabase to get the document
         document = None
         if document_id in all_docs:
             document = all_docs[document_id]
-            logger.info(f"Found document in simple_db: {document}")
+            logger.info(f"Found document in database: {document}")
             logger.info(f"Document user_id: {document.get('user_id', 'N/A')}")
             logger.info(f"Request user_id: {request.current_user['user_id']}")
         else:
-            logger.info(f"Document {document_id} not found in simple_db")
+            logger.info(f"Document {document_id} not found in database")
             logger.info(f"Available document IDs: {list(all_docs.keys())}")
         
         if not document:

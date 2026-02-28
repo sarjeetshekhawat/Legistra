@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
 import ErrorBoundary from './components/ErrorBoundary';
 import Upload from './pages/Upload';
 import Analysis from './pages/Analysis';
@@ -9,6 +7,7 @@ import Search from './pages/Search';
 import Visualizations from './pages/Visualizations';
 import Settings from './pages/Settings';
 import Dashboard from './pages/Dashboard';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -21,35 +20,47 @@ function AppContent() {
   const [activeTab, setActiveTab] = useState('upload');
   const location = useLocation();
 
-  // Initialize theme on app startup
+  // Initialize theme on app startup - default to dark
   useEffect(() => {
     const savedSettings = localStorage.getItem('legistra_settings');
     if (savedSettings) {
       const settings = JSON.parse(savedSettings);
-      if (settings.theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
+      if (settings.theme === 'light') {
         document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
       }
+    } else {
+      // Default to dark theme for new users
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
-  // Update activeTab based on current route
+  // Update activeTab + page title based on current route
   useEffect(() => {
     const path = location.pathname;
-    if (path === '/') {
-      setActiveTab('upload');
-    } else if (path === '/upload') {
-      setActiveTab('upload');
-    } else if (path === '/analysis') {
-      setActiveTab('analysis');
-    } else if (path === '/search') {
-      setActiveTab('search');
-    } else if (path === '/visualizations') {
-      setActiveTab('visualizations');
-    } else if (path === '/settings') {
-      setActiveTab('settings');
-    }
+    const titles = {
+      '/': 'Dashboard',
+      '/dashboard': 'Dashboard',
+      '/upload': 'Upload',
+      '/analysis': 'Analysis',
+      '/search': 'Search',
+      '/visualizations': 'Visualizations',
+      '/settings': 'Settings',
+      '/landing': 'Legistra — AI Legal Document Analysis',
+      '/login': 'Sign In',
+      '/register': 'Sign Up',
+    };
+    const title = titles[path];
+    document.title = title
+      ? (path === '/landing' ? title : `${title} | Legistra`)
+      : 'Legistra';
+
+    if (path === '/' || path === '/upload') setActiveTab('upload');
+    else if (path === '/analysis') setActiveTab('analysis');
+    else if (path === '/search') setActiveTab('search');
+    else if (path === '/visualizations') setActiveTab('visualizations');
+    else if (path === '/settings') setActiveTab('settings');
   }, [location.pathname]);
 
   const renderContent = () => {
@@ -74,6 +85,7 @@ function AppContent() {
     <>
       <Routes>
         {/* Public routes */}
+        <Route path="/landing" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         
@@ -126,8 +138,8 @@ function AppContent() {
           </ProtectedRoute>
         } />
         
-        {/* Redirect any unknown routes to login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* Redirect any unknown routes to landing */}
+        <Route path="*" element={<Navigate to="/landing" replace />} />
       </Routes>
       
       {/* Onboarding Tour */}

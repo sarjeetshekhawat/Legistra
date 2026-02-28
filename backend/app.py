@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from config import config
-from models_simple import MongoDB, DBManager, SimpleDB
+from models_supabase import SupabaseDB, DBManager
 from utils.file_utils import allowed_file, extract_text
 # from transformers import pipeline  # Commented out as unused after disabling LLM
 import uuid
@@ -28,15 +28,16 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 env = os.getenv('FLASK_ENV', 'development')
 app.config.from_object(config[env])
-# Configure CORS with specific origins
+# Configure CORS — allow local dev AND Docker (nginx on port 80)
+allowed_origins = os.getenv('CORS_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000,http://localhost,http://localhost:80').split(',')
 CORS(app, 
-     origins=['http://localhost:3000', 'http://127.0.0.1:3000'],
+     origins=allowed_origins,
      methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
      allow_headers=['Content-Type', 'Authorization'],
      supports_credentials=True)
 
 # Configure JWT
-app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your-secret-key-change-in-production')
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', app.config['SECRET_KEY'])
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = dt.timedelta(hours=24)
 
 # Initialize JWT manager
@@ -45,12 +46,9 @@ jwt_manager.init_app(app)
 # Register auth blueprint
 app.register_blueprint(auth_bp)
 
-# Initialize MongoDB and DB Manager
-mongo_db = MongoDB(uri=app.config['MONGODB_URI'], db_name=app.config['MONGO_DB'])
-db_manager = DBManager(mongo_db)
-
-# Initialize simple database
-simple_db = SimpleDB()
+# Initialize Supabase DB and DB Manager
+supabase_db = SupabaseDB()
+db_manager = DBManager(supabase_db)
 
 # Input validation schemas
 class SearchSchema(Schema):
@@ -97,14 +95,10 @@ def sanitize_search_query(query):
 def get_user_documents_safe(user_id):
     """Safely get user documents with proper filtering"""
     try:
-        all_documents = simple_db._read_documents()
-        user_docs = []
-        for doc_id, doc_data in all_documents.items():
-            if doc_data.get('user_id') == user_id:
-                # Remove sensitive content from list view
-                safe_doc = doc_data.copy()
-                safe_doc.pop('content', None)
-                user_docs.append(safe_doc)
+        user_docs = supabase_db.get_user_documents(user_id)
+        # Remove sensitive content from list view
+        for doc in user_docs:
+            doc.pop('content', None)
         return user_docs
     except Exception as e:
         logger.error(f"Error getting user documents: {str(e)}")
@@ -113,24 +107,7 @@ def get_user_documents_safe(user_id):
 def get_user_analysis_safe(user_id):
     """Safely get user analysis results with proper filtering"""
     try:
-        all_analysis = simple_db._read_analysis()
-        all_documents = simple_db._read_documents()
-        
-        # First, get all document IDs that belong to the user
-        user_document_ids = set()
-        for doc_id, doc_data in all_documents.items():
-            if doc_data.get('user_id') == user_id:
-                user_document_ids.add(doc_id)
-        
-        logger.info(f"Found {len(user_document_ids)} document IDs for user {user_id}: {list(user_document_ids)}")
-        
-        # Then filter analysis results by those document IDs
-        user_analysis = []
-        for analysis_id, analysis_data in all_analysis.items():
-            doc_id = analysis_data.get('document_id')
-            if doc_id in user_document_ids:
-                user_analysis.append(analysis_data)
-        
+        user_analysis = supabase_db.get_user_analysis_results(user_id)
         logger.info(f"Found {len(user_analysis)} analysis results for user {user_id}")
         return user_analysis
     except Exception as e:
@@ -167,7 +144,18 @@ def upload_document():
         logger.info(f"Text extracted, length: {len(text)}")
         doc_id = db_manager.store_document_metadata_and_content(filename, text, save_path)
         # Associate document with current user
-        mongo_db.update_document_with_user(doc_id, request.current_user['user_id'])
+        supabase_db.update_document_with_user(doc_id, request.current_user['user_id'])
+        # Upload to Supabase Storage
+        try:
+            from supabase_client import upload_file_to_storage
+            user_id = request.current_user['user_id']
+            storage_path = f"{user_id}/{unique_filename}"
+            with open(save_path, 'rb') as f:
+                upload_file_to_storage(f.read(), storage_path)
+            supabase_db.update_document_storage_path(doc_id, storage_path)
+            logger.info(f"File uploaded to Supabase Storage: {storage_path}")
+        except Exception as storage_err:
+            logger.warning(f"Supabase Storage upload failed (file saved locally): {storage_err}")
         logger.info(f"Document stored in DB with ID: {doc_id} for user {request.current_user['user_id']}")
         return jsonify(document_id=doc_id), 200
     except Exception as e:
@@ -196,7 +184,7 @@ def analyze_document():
             return jsonify({'error': 'Document not found'}), 404
         
         # Check if document belongs to current user
-        if document.get('user_id') != request.current_user['user_id']:
+        if str(document.get('user_id')) != str(request.current_user['user_id']):
             logger.warning(f"Unauthorized access attempt by user {request.current_user['user_id']} to document {doc_id}")
             return jsonify({'error': 'Access denied'}), 403
         
@@ -442,24 +430,24 @@ def search_documents():
         # Get user documents only
         user_docs = get_user_documents_safe(user_id)
         
-        # Add content back for search functionality
-        all_documents = simple_db._read_documents()
+        # Search user's documents via Supabase
+        all_documents = supabase_db.read_all_documents()
         results = []
         
         for doc_id, doc_data in all_documents.items():
             # Only search user's own documents
-            if doc_data.get('user_id') != user_id:
+            if str(doc_data.get('user_id')) != str(user_id):
                 continue
                 
             # Simple text search in content and filename
-            content = doc_data.get('content', '').lower()
-            filename = doc_data.get('filename', '').lower()
+            content = (doc_data.get('content') or '').lower()
+            filename = (doc_data.get('filename') or '').lower()
             search_term = query.lower()
             
             if search_term in content or search_term in filename:
                 # Include content preview for search results (first 500 characters)
                 result_doc = doc_data.copy()
-                if 'content' in result_doc and len(result_doc['content']) > 500:
+                if 'content' in result_doc and result_doc['content'] and len(result_doc['content']) > 500:
                     result_doc['content'] = result_doc['content'][:500] + '...'
                 results.append(result_doc)
         
@@ -508,9 +496,8 @@ def export_analysis():
 
     document_id = result['document_id']
 
-    # Get analysis from MongoDB
-    analysis_collection = mongo_db.get_analysis_results_collection()
-    analysis_doc = analysis_collection.find_one({'document_id': document_id})
+    # Get analysis from Supabase
+    analysis_doc = supabase_db.get_analysis_result(document_id)
     if not analysis_doc:
         return jsonify({'error': 'Analysis not found in database'}), 404
 
@@ -593,7 +580,12 @@ def analyze_document_multilingual_route():
 @token_required
 def analyze_document_fast_multilingual_route():
     """Fast multilingual document analysis endpoint with optimized performance"""
-    return analyze_document_fast_multilingual_temp(mongo_db, simple_db)
+    return analyze_document_fast_multilingual_temp(supabase_db, supabase_db)
+
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    """Health check endpoint for Docker / load balancers."""
+    return jsonify(status='healthy', service='legistra-backend'), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])
